@@ -1,101 +1,125 @@
-import Image from "next/image";
+"use client";
+import React, { useState } from "react";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+import Content from "@/components/Content";
+import Footer from "@/components/Footer";
+import { ChevronRight, Code, Box, RefreshCw, Github, Zap, Palette, Users , ArrowRight} from "lucide-react";import Link from "next/link";
+;
 
-export default function Home() {
+const sidebarItems = [
+  { title: "Getting Started", items: ["Introduction"] },
+  { title: "Components", items: ["Cards", "Widgets", "Rendering", "Caching"] },
+  {
+    title: "Advanced Guides",
+    items: ["Authentication", "Deployment", "Testing", "Error Handling"],
+  },
+  {
+    title: "API Reference",
+    items: ["CLI Commands", "Configuration", "Hooks", "Components"],
+  },
+];
+
+const DocsSite: React.FC = () => {
+  const [activeItem, setActiveItem] = useState("Introduction");
+  const [isShowComponents,setIsShowComponents] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  const features = [
+    {
+      icon: <Code className="w-6 h-6 text-blue-500" />,
+      title: "Ready-to-Use Components",
+      description: "Copy, paste, and customize components built with React and Tailwind CSS",
+    },
+    {
+      icon: <Zap className="w-6 h-6 text-blue-500" />,
+      title: "Performance Optimized",
+      description: "Lightweight and efficient components to keep your app fast and responsive",
+    },
+    {
+      icon: <Palette className="w-6 h-6 text-blue-500" />,
+      title: "Customizable Themes",
+      description: "Easily adapt components to match your brand's look and feel",
+    },
+    {
+      icon: <Users className="w-6 h-6 text-blue-500" />,
+      title: "Community Driven",
+      description: "Benefit from contributions and improvements from a vibrant developer community",
+    },
+    {
+      icon: <RefreshCw className="w-6 h-6 text-blue-500" />,
+      title: "Regular Updates",
+      description: "New components and features added regularly to expand your toolkit",
+    },
+    {
+      icon: <Box className="w-6 h-6 text-blue-500" />,
+      title: "Interactive Previews",
+      description: "Test and interact with components before adding them to your project",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen">
+      <Header toggleMobileMenu={toggleMobileMenu} />
+     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4 mt-4">
+          Made with React + Tailwind CSS
+        </span>
+        <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          Welcome to <span className="text-blue-600">useComponents</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-8">
+          Your go-to collection of production-ready React components. Copy, paste, and
+          transform your ideas into reality.
+        </p>
+        <div className="flex flex-wrap gap-4 justify-center">
+         <Link href={'/doc'}>
+          <button  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
+            Explore Components
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </button>
+          </Link>
+          <button className="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-900 font-medium rounded-lg hover:bg-gray-200 transition-colors">
+            <Github className="mr-2 w-4 h-4" />
+            Star on GitHub
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            {/* Features Section */}
+            <div className="container mx-auto px-4 py-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose useComponents?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          {/* Footer */}
+          <footer className="container mx-auto px-4 py-8 border-t">
+            <div className="text-center text-gray-600">
+              <p>Built with ❤️ for the React community</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      
+      <Footer />
     </div>
   );
-}
+};
+
+export default DocsSite;
