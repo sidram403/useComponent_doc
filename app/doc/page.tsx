@@ -1,14 +1,13 @@
 "use client"
+import React, { useState } from 'react'
 
 import Content from '@/components/Content'
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar'
-import React, { useState } from 'react'
 
-const page = () => {
-    const [activeItem, setActiveItem] = useState("Introduction");
-    const [isShowComponents,setIsShowComponents] = useState(false)
+const DocPage : React.FC = () => {
+    const [activeItem, setActiveItem] = useState<string>("Introduction");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -44,4 +43,4 @@ const page = () => {
   )
 }
 
-export default page
+export default DocPage

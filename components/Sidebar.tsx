@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { ChevronRight, X } from 'lucide-react'
+import {  X } from 'lucide-react'
 
 type SidebarProps = {
   sidebarItems: { title: string; items: string[] }[];

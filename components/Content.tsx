@@ -2,7 +2,6 @@
 import React from 'react';
 import Introduction from './pages/Introduction';
 import Widgets from './pages/components/Widgets';
-import Cards from './pages/components/Cards';
 import CardsSection from './pages/components/Cards';
 
 type ContentProps = {

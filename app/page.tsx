@@ -5,18 +5,7 @@ import Footer from "@/components/Footer";
 import {  Code, Box, RefreshCw, Github, Zap, Palette, Users , ArrowRight} from "lucide-react";import Link from "next/link";
 ;
 
-const sidebarItems = [
-  { title: "Getting Started", items: ["Introduction"] },
-  { title: "Components", items: ["Cards", "Widgets", "Rendering", "Caching"] },
-  {
-    title: "Advanced Guides",
-    items: ["Authentication", "Deployment", "Testing", "Error Handling"],
-  },
-  {
-    title: "API Reference",
-    items: ["CLI Commands", "Configuration", "Hooks", "Components"],
-  },
-];
+
 
 const DocsSite: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

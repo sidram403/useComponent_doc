@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 
 const Widgets: React.FC = () => {
   const [waterLevel, setWaterLevel] = useState(0);
-  const [batteryCharge, setBatteryCharge] = useState(0);
-  const [isCharging, setIsCharging] = useState(true);
-  const [showStorageStats, setShowStorageStats] = useState(false);
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
   const [selectedCard, setSelectedCard] = useState(0);
 
@@ -15,23 +12,13 @@ const Widgets: React.FC = () => {
     const waterTimer = setTimeout(() => setWaterLevel(33), 500);
 
     // Animate battery percentage
-    const batteryTimer = setInterval(() => {
-      setBatteryCharge((prev) => {
-        if (prev >= 50) {
-          setIsCharging(false);
-          return 50;
-        }
-        return prev + 1;
-      });
-    }, 30);
+  
 
     // Show storage stats with delay
-    const statsTimer = setTimeout(() => setShowStorageStats(true), 800);
 
     return () => {
       clearTimeout(waterTimer);
-      clearInterval(batteryTimer);
-      clearTimeout(statsTimer);
+      
     };
   }, []);
 
@@ -99,6 +86,8 @@ const Widgets: React.FC = () => {
               <Image
                 src="https://xsgames.co/randomusers/avatar.php?g=male"
                 alt="Avatar"
+                width={64}
+                height={64}
                 className="rounded-full w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 animate-fadeIn hover:rotate-6 transition-transform duration-300"
               />
               <div className="absolute bottom-4 sm:bottom-6 right-0 w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full animate-pulse" />
