@@ -2,6 +2,7 @@ import React from 'react'
 import { Book, Github, Menu, Search } from 'lucide-react' 
 import { Button } from "@/components/ui/button" 
 import { Input } from "@/components/ui/input" 
+import Link from 'next/link';
  
 type HeaderProps = { 
   toggleMobileMenu: () => void; 
@@ -14,7 +15,9 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
         <div className="mr-4 hidden md:flex"> 
           <a className="mr-6 flex items-center space-x-2" href="#"> 
             <Book className="h-6 w-6" /> 
+            <Link href={'/'}>
             <span className="hidden font-bold sm:inline-block">useComponents</span> 
+            </Link>
           </a> 
           <nav className="flex items-center space-x-6 text-sm font-medium"> 
             <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#">Documentation</a> 

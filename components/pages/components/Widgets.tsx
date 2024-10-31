@@ -1,4 +1,5 @@
 // components/ComponentViewer.tsx
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Widgets: React.FC = () => {
@@ -68,7 +69,7 @@ const Widgets: React.FC = () => {
 <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 md:p-8 transform hover:scale-102 transition-all duration-300 max-w-xs mx-auto">
     <div className="flex flex-col items-center">
         <div className="relative">
-            <img 
+            <Image
                 src="https://xsgames.co/randomusers/avatar.php?g=male" 
                 alt="Avatar" 
                 className="rounded-full w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 animate-fadeIn hover:rotate-6 transition-transform duration-300"
@@ -95,7 +96,7 @@ const Widgets: React.FC = () => {
         <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 md:p-8 transform hover:scale-102 transition-all duration-300 max-w-xs mx-auto">
           <div className="flex flex-col items-center">
             <div className="relative">
-              <img
+              <Image
                 src="https://xsgames.co/randomusers/avatar.php?g=male"
                 alt="Avatar"
                 className="rounded-full w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-3 sm:mb-4 animate-fadeIn hover:rotate-6 transition-transform duration-300"

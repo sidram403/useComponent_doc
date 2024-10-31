@@ -1,10 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
-import Content from "@/components/Content";
 import Footer from "@/components/Footer";
-import { ChevronRight, Code, Box, RefreshCw, Github, Zap, Palette, Users , ArrowRight} from "lucide-react";import Link from "next/link";
+import {  Code, Box, RefreshCw, Github, Zap, Palette, Users , ArrowRight} from "lucide-react";import Link from "next/link";
 ;
 
 const sidebarItems = [
@@ -21,8 +19,6 @@ const sidebarItems = [
 ];
 
 const DocsSite: React.FC = () => {
-  const [activeItem, setActiveItem] = useState("Introduction");
-  const [isShowComponents,setIsShowComponents] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -83,10 +79,12 @@ const DocsSite: React.FC = () => {
             <ArrowRight className="ml-2 w-4 h-4" />
           </button>
           </Link>
+          <a href="https://github.com/sidram403/useComponent_doc"  >
           <button className="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-900 font-medium rounded-lg hover:bg-gray-200 transition-colors">
             <Github className="mr-2 w-4 h-4" />
             Star on GitHub
           </button>
+          </a>
         </div>
             {/* Features Section */}
             <div className="container mx-auto px-4 py-16">
